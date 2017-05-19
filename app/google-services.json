@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "62333526558",
+    "firebase_url": "https://multiplay-46f7d.firebaseio.com",
+    "project_id": "multiplay-46f7d",
+    "storage_bucket": "multiplay-46f7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62333526558:android:127ada15ea80f7a1",
+        "android_client_info": {
+          "package_name": "com.example.ishan.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62333526558-5regogekto3qgemrq75el43dtph2m8jt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ishan.test",
+            "certificate_hash": "3a358c4b81dbe3b3e1207d98279c55fdf4440051"
+          }
+        },
+        {
+          "client_id": "62333526558-8utjiph55tt0d5tnbfp6uugjut4qvbcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAix1zjQGeQZX5g3tJtpIsBPawAyIyug2U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62333526558-8utjiph55tt0d5tnbfp6uugjut4qvbcn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
