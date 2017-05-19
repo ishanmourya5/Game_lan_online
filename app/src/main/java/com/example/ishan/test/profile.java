@@ -25,7 +25,7 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
     FirebaseUser fb_user;
     TextView username_tv;
     TextView user_tv;
-    String users = "Users : \n";
+    String users = "Users: \n";
     Button connect_button;
     EditText username_et;
 
@@ -41,7 +41,7 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
         auth = FirebaseAuth.getInstance();
         fb_user = auth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
-        username_tv.setText(fb_user.getDisplayName());
+        username_tv.setText("SignedIn as : " + fb_user.getDisplayName());
         connect_button.setOnClickListener(this);
         
         DatabaseReference ref = database.getReference().child("user");

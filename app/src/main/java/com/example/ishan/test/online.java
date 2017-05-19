@@ -35,6 +35,7 @@ public class online extends AppCompatActivity implements View.OnClickListener{
     String email;
     String password;
     String name;
+    TextView loading_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class online extends AppCompatActivity implements View.OnClickListener{
         username_et = (EditText)findViewById(R.id.editText);
         password_et = (EditText)findViewById(R.id.editText2);
         name_et = (EditText)findViewById(R.id.editText5);
+
+        loading_tv = (TextView)findViewById(R.id.textView6);
         signup_button = (Button)findViewById(R.id.button4);
         signin_button = (Button)findViewById(R.id.button5);
         sq = (SlidingSquareLoaderView)findViewById(R.id.progressBar);
@@ -66,6 +69,7 @@ public class online extends AppCompatActivity implements View.OnClickListener{
         if(v==signup_button){
             hideKeyboard(this);
             sq.setVisibility(View.VISIBLE);
+            loading_tv.setVisibility(View.VISIBLE);
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -85,6 +89,7 @@ public class online extends AppCompatActivity implements View.OnClickListener{
         else if(v==signin_button){
             hideKeyboard(this);
             sq.setVisibility(View.VISIBLE);
+            loading_tv.setVisibility(View.VISIBLE);
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
