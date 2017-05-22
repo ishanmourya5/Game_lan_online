@@ -11,7 +11,7 @@ import java.net.Socket;
 
 public class Client {
 
-    lan activity;
+    game_lan activity;
     String destIP;
     int destPORT;
     String message_rec;
@@ -19,10 +19,10 @@ public class Client {
     String conversation= "";
     int flag=1;
 
-    Client(lan activity){
+    Client(game_lan activity, String IP, String port){
         this.activity = activity;
-        destIP = activity.server_ip_et.getText().toString();
-        destPORT = Integer.parseInt(activity.server_port_et.getText().toString());
+        destIP = IP;
+        destPORT = Integer.parseInt(port);
         Thread client_thread = new Thread(new SocketClientThread());
         client_thread.start();
     }

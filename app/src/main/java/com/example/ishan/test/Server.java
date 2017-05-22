@@ -15,7 +15,7 @@ import java.net.SocketException;
 import java.util.Enumeration;
 
 public class Server {
-    lan activity;
+    game_lan activity;
     ServerSocket server_socket;
     static final int server_port = 8080;
     int count =0;
@@ -24,7 +24,7 @@ public class Server {
     String message_rec;
     String conversation = "";
 
-    public Server(lan activity){
+    public Server(game_lan activity){
         this.activity=activity;
         Thread server_thread = new Thread(new SocketServerThread());
         server_thread.start();

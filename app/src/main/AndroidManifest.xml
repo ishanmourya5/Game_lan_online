@@ -39,6 +39,9 @@
         <activity android:name=".game_online"
             android:theme="@style/AppTheme">
         </activity>
+        <activity android:name=".game_lan"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>
