@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -18,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class profile extends AppCompatActivity implements View.OnClickListener{
 
     FirebaseAuth auth;
@@ -28,6 +34,9 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
     String users = "Users: \n";
     Button connect_button;
     EditText username_et;
+    RecyclerView user_rv;
+    user_adapter user_ua;
+    List<user> user_list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +46,12 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
         connect_button =(Button)findViewById(R.id.button6);
         username_et = (EditText)findViewById(R.id.editText4);
         user_tv = (TextView)findViewById(R.id.textView5);
+
+        user_rv = (RecyclerView)findViewById(R.id.recyclerView);
+        user_ua = new user_adapter(user_list);
+        RecyclerView.LayoutManager layout_manager = new LinearLayoutManager(getApplicationContext());
+        user_rv.setLayoutManager(layout_manager);
+        user_rv.setAdapter(user_ua);
 
         auth = FirebaseAuth.getInstance();
         fb_user = auth.getCurrentUser();
@@ -51,6 +66,8 @@ public class profile extends AppCompatActivity implements View.OnClickListener{
                 user u = dataSnapshot.getValue(user.class);
                 users += u.name + "\n";
                 user_tv.setText(users);
+                user_list.add(u);
+                user_ua.notifyDataSetChanged();
             }
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
